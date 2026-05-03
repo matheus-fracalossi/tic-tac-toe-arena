@@ -1,7 +1,9 @@
 import { useCallback } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { PIConfetti } from "react-native-fast-confetti";
+import { scaleFromWidth } from "@/utils/responsive";
 
 import {
   GameScreen,
@@ -25,8 +27,13 @@ export default function GameRoute() {
   }, [router]);
 
   return (
-    <View style={styles.safeArea}>
-      <View style={styles.content}>
+    <SafeAreaView style={styles.safeArea} edges={["top", "bottom", "left", "right"]}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.content}
+        bounces={false}
+        showsVerticalScrollIndicator={false}
+      >
         <GameScreen
           gameMode={gameMode}
           gameState={gameState}
@@ -34,7 +41,7 @@ export default function GameRoute() {
           onRetry={gameState.reset}
           onBackToHome={handleBackToHome}
         />
-      </View>
+      </ScrollView>
       {showConfetti && (
         <View style={StyleSheet.absoluteFill}>
           <PIConfetti
@@ -49,16 +56,16 @@ export default function GameRoute() {
           />
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollView: { flex: 1 },
   content: {
     alignItems: "center",
-    flex: 1,
-    justifyContent: "center",
-    padding: 20,
+    paddingHorizontal: scaleFromWidth(16),
+    paddingVertical: scaleFromWidth(12),
   },
   safeArea: { backgroundColor: COLORS.background, flex: 1 },
 });

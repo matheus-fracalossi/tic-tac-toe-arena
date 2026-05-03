@@ -7,6 +7,7 @@ import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 
 import { COLORS } from "../theme";
 import { Text } from "./text";
+import { scaleFromHeight, scaleFromWidth } from "../utils/responsive";
 
 import type { TextStyle, ViewStyle } from "react-native";
 import type { AnimatedProps } from "react-native-reanimated";
@@ -81,9 +82,9 @@ export const Button: FC<ButtonProps> = ({
 };
 
 const SIZE_MAP = {
-  small: 14,
-  medium: 15,
-  large: 16,
+  small: scaleFromHeight(11),
+  medium: scaleFromHeight(12),
+  large: scaleFromHeight(13),
 } as const;
 
 const styles = StyleSheet.create({
@@ -118,15 +119,15 @@ const styles = StyleSheet.create({
   },
 
   large: {
-    minWidth: 96,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    minWidth: scaleFromWidth(96),
+    paddingHorizontal: scaleFromWidth(20),
+    paddingVertical: scaleFromHeight(8),
   },
 
   medium: {
-    minWidth: 80,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    minWidth: scaleFromWidth(80),
+    paddingHorizontal: scaleFromWidth(16),
+    paddingVertical: scaleFromHeight(7),
   },
   primary: {
     backgroundColor: COLORS.playerX,
@@ -160,9 +161,9 @@ const styles = StyleSheet.create({
     color: COLORS.textSecondary,
   },
   small: {
-    minWidth: 64,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    minWidth: scaleFromWidth(64),
+    paddingHorizontal: scaleFromWidth(12),
+    paddingVertical: scaleFromHeight(5),
   },
   text: {
     color: COLORS.text,

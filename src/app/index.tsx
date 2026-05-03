@@ -1,10 +1,12 @@
 import { useCallback } from "react";
 import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 
 import { COLORS } from "@/theme";
 import { HomeScreen } from "@/features/home";
 import type { Difficulty } from "@/features/game";
+import { scaleFromWidth } from "@/utils/responsive";
 
 export default function HomeRoute() {
   const router = useRouter();
@@ -20,11 +22,11 @@ export default function HomeRoute() {
   );
 
   return (
-    <View style={styles.safeArea}>
+    <SafeAreaView style={styles.safeArea} edges={["top", "bottom", "left", "right"]}>
       <View style={styles.content}>
         <HomeScreen onStartGame={handleStartGame} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -34,6 +36,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
     justifyContent: "center",
-    padding: 20,
+    paddingHorizontal: scaleFromWidth(16),
+    paddingVertical: scaleFromWidth(12),
   },
 });

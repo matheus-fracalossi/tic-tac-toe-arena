@@ -8,6 +8,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { COLORS } from '@/theme';
 import { Text } from '@/components/text';
+import { scaleFromHeight, scaleFromWidth } from '@/utils/responsive';
 
 export type TurnIndicatorProps = {
   text: string;
@@ -37,12 +38,12 @@ TurnIndicator.displayName = 'TurnIndicator';
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 24,
+    marginBottom: scaleFromHeight(18),
     alignItems: 'center',
   },
   badge: {
-    paddingHorizontal: 24,
-    paddingVertical: 12,
+    paddingHorizontal: scaleFromWidth(20),
+    paddingVertical: scaleFromHeight(10),
     borderRadius: 8,
     backgroundColor: COLORS.surface,
     borderWidth: 2,
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   text: {
-    fontSize: 14,
+    fontSize: scaleFromHeight(11),
     textAlign: 'center',
     textTransform: 'uppercase',
     letterSpacing: 1,

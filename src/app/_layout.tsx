@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Image } from "react-native";
 import { Stack } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import * as SplashScreen from "expo-splash-screen";
 import { Asset } from "expo-asset";
 
@@ -54,9 +55,11 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <AudioProvider>
-        <Stack screenOptions={stackOptions} />
-      </AudioProvider>
+      <SafeAreaProvider>
+        <AudioProvider>
+          <Stack screenOptions={stackOptions} />
+        </AudioProvider>
+      </SafeAreaProvider>
     </GestureHandlerRootView>
   );
 }

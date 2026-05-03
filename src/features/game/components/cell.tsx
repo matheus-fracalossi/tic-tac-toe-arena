@@ -13,6 +13,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 import { CELL_SIZE } from "./constants";
+import { scaleFromWidth } from "@/utils/responsive";
 import { COLORS } from "@/theme";
 import type { CellValue } from "../logic";
 
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     width: CELL_SIZE,
   },
   cellText: {
-    fontSize: 50,
+    fontSize: Math.min(CELL_SIZE * 0.55, scaleFromWidth(48)),
     fontFamily: Platform.select({
       android: "PressStart2P_400Regular",
       ios: "Press Start 2P",

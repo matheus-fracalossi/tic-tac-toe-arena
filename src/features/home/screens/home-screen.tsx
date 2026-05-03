@@ -15,6 +15,7 @@ import type { Difficulty } from "@/features/game";
 
 import { GameTitle } from "../components/game-title";
 import { useHomeScreen } from "../hooks/use-home-screen";
+import { scaleFromHeight } from "@/utils/responsive";
 
 type HomeScreenProps = {
   onStartGame: (mode: "pve" | "pvp", difficulty?: Difficulty) => void;
@@ -83,15 +84,15 @@ HomeScreen.displayName = "HomeScreen";
 const styles = StyleSheet.create({
   homeContainer: {
     alignItems: "center",
-    gap: 60,
+    gap: scaleFromHeight(40),
   },
   optionsContainer: {
-    gap: 50,
+    gap: scaleFromHeight(32),
     alignItems: "center",
     justifyContent: "center",
   },
   buttonContainer: {
-    gap: 16,
+    gap: scaleFromHeight(12),
   },
   modeButton: {
     alignSelf: "center",

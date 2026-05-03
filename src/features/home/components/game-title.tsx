@@ -10,6 +10,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { Text } from "@/components/text";
 import { COLORS } from "@/theme";
+import { scaleFromHeight } from "@/utils/responsive";
 
 export const GameTitle = memo(() => {
   const { t } = useTranslation();
@@ -50,11 +51,11 @@ const styles = StyleSheet.create({
   },
   title: {
     color: COLORS.text,
-    fontSize: 20,
+    fontSize: scaleFromHeight(16),
   },
   arena: {
     color: COLORS.playerX,
-    fontSize: 45,
+    fontSize: scaleFromHeight(36),
     textAlign: "center",
   },
 });

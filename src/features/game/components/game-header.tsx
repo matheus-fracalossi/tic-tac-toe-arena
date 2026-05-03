@@ -5,8 +5,11 @@ import { Avatar } from "./avatar";
 import { Text } from "@/components/text";
 import { ColorIndicator } from "./color-indicator";
 import { COLORS } from "@/theme";
+import { scaleFromHeight, scaleFromWidth, SCREEN_WIDTH } from "@/utils/responsive";
 
-const AVATAR_SIZE = 80;
+// Scale the avatar so all three columns (avatar | VS | avatar) fit within
+// the screen width, even on the iPhone SE (320pt).
+const AVATAR_SIZE = Math.min(scaleFromWidth(72), Math.floor((SCREEN_WIDTH - 96) / 2));
 
 type PlayerHeaderInfo = {
   image: any;
@@ -70,13 +73,13 @@ GameHeader.displayName = "GameHeader";
 const styles = StyleSheet.create({
   header: {
     alignItems: "center",
-    marginBottom: 40,
+    marginBottom: scaleFromHeight(28),
   },
   titleRow: {
     alignItems: "center",
     flexDirection: "row",
-    gap: 20,
-    marginBottom: 16,
+    gap: scaleFromWidth(16),
+    marginBottom: scaleFromHeight(12),
   },
   avatarGroup: {
     alignItems: "center",
@@ -84,16 +87,16 @@ const styles = StyleSheet.create({
   labelWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 10,
-    gap: 8,
+    marginTop: scaleFromHeight(8),
+    gap: scaleFromWidth(6),
   },
   avatarLabel: {
     color: COLORS.text,
-    fontSize: 14,
+    fontSize: scaleFromHeight(11),
     letterSpacing: 0.5,
   },
   vsText: {
     color: COLORS.textSecondary,
-    fontSize: 20,
+    fontSize: scaleFromHeight(16),
   },
 });

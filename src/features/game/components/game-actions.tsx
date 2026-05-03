@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import Animated, { FadeIn } from "react-native-reanimated";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/button";
+import { scaleFromHeight } from "@/utils/responsive";
 
 type GameActionsProps = {
   onRetry: () => void;
@@ -47,13 +48,13 @@ GameActions.displayName = "GameActions";
 const styles = StyleSheet.create({
   gameActions: {
     alignItems: "center",
-    marginTop: 16,
+    marginTop: scaleFromHeight(12),
     width: "100%",
   },
   retryContainer: {
-    marginTop: 24,
+    marginTop: scaleFromHeight(18),
   },
   backButton: {
-    marginTop: 32,
+    marginTop: scaleFromHeight(22),
   },
 });

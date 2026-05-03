@@ -4,6 +4,7 @@ import Animated, { FadeInLeft, FadeInRight } from "react-native-reanimated";
 
 import { COLORS } from "../theme";
 import { Text } from "./text";
+import { scaleFromHeight, scaleFromWidth } from "../utils/responsive";
 
 export type SliderOption<T extends string> = {
   value: T;
@@ -65,20 +66,20 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 12,
+    gap: scaleFromWidth(10),
   },
   item: {
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 12,
-    minWidth: 160,
+    paddingVertical: scaleFromHeight(10),
+    minWidth: scaleFromWidth(150),
   },
   itemText: {
-    fontSize: 10,
+    fontSize: scaleFromHeight(9),
     color: COLORS.playerX,
   },
   arrow: {
-    fontSize: 16,
+    fontSize: scaleFromHeight(14),
     color: COLORS.textSecondary,
   },
 });

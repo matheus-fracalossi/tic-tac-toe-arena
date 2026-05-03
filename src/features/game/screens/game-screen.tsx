@@ -15,6 +15,7 @@ import { AudioToggleButton } from "@/features/audio";
 import { COLORS } from "@/theme";
 import { type TicTacToeGameState } from "../hooks/use-tic-tac-toe";
 import { Text } from "@/components/text";
+import { scaleFromHeight } from "@/utils/responsive";
 import type { Difficulty } from "../logic";
 
 import PlayerX from "@/assets/avatars/player-x.png";
@@ -147,16 +148,16 @@ const GameScreenComponent = ({
 const styles = StyleSheet.create({
   gameContainer: { alignItems: "center", width: "100%" },
   difficultyLabel: {
-    fontSize: 12,
+    fontSize: scaleFromHeight(10),
     color: COLORS.textSecondary,
-    marginBottom: 20,
+    marginBottom: scaleFromHeight(14),
   },
   boardContainer: {
     alignItems: "center",
     justifyContent: "center",
-    minHeight: 160,
+    minHeight: scaleFromHeight(120),
     minWidth: "100%",
-    gap: 40,
+    gap: scaleFromHeight(28),
   },
   boardWrapper: { alignItems: "center", justifyContent: "center" },
   audioButton: {},
