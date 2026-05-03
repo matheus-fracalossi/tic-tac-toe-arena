@@ -82,7 +82,7 @@ const AnimatedCellWrapperComponent = ({
   return (
     <View style={styles.beforeAnimation}>
       <Animated.View
-        entering={FadeIn.delay((r + c) * 100).duration(400)}
+        entering={FadeIn.delay((r + c) * 150).duration(500)}
         style={styles.cellWrapper}
       >
         <Cell
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   cellWrapper: { flex: 1 },
   row: { flexDirection: "row", flex: 1 },
   beforeAnimation: {
-    backgroundColor: COLORS.playerXHighlight,
+    backgroundColor: COLORS.surfaceHighlight,
   },
 });
 

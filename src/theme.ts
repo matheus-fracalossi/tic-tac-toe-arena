@@ -4,7 +4,7 @@ export const COLORS = {
   // Base colors
   background: "#121414", // Deep navy surface
   surface: "#1e2020", // Surface container
-  surfaceHighlight: "#333535", // Surface container highest
+  surfaceHighlight: "rgba(0, 228, 120, 0.15)", // Surface container highest
 
   // Player X colors (Electric Green)
   playerX: "#00e478", // Electric green accent
