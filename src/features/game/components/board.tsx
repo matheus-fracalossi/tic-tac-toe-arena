@@ -4,9 +4,7 @@
 
 import { memo } from "react";
 import { View, StyleSheet } from "react-native";
-import Animated, {
-  FadeIn,
-} from "react-native-reanimated";
+import Animated, { FadeIn } from "react-native-reanimated";
 
 import { Cell } from "./cell";
 import { BOARD_SIZE } from "./constants";
@@ -82,19 +80,21 @@ const AnimatedCellWrapperComponent = ({
   onPress,
 }: AnimatedCellWrapperProps) => {
   return (
-    <Animated.View
-      entering={FadeIn.delay((r + c) * 100).duration(400)}
-      style={styles.cellWrapper}
-    >
-      <Cell
-        value={value}
-        isWinning={isWinning}
-        isLast={isLast}
-        currentTurn={currentTurn}
-        disabled={disabled}
-        onPress={onPress}
-      />
-    </Animated.View>
+    <View style={styles.beforeAnimation}>
+      <Animated.View
+        entering={FadeIn.delay((r + c) * 100).duration(400)}
+        style={styles.cellWrapper}
+      >
+        <Cell
+          value={value}
+          isWinning={isWinning}
+          isLast={isLast}
+          currentTurn={currentTurn}
+          disabled={disabled}
+          onPress={onPress}
+        />
+      </Animated.View>
+    </View>
   );
 };
 
@@ -110,6 +110,9 @@ const styles = StyleSheet.create({
   },
   cellWrapper: { flex: 1 },
   row: { flexDirection: "row", flex: 1 },
+  beforeAnimation: {
+    backgroundColor: COLORS.playerXHighlight,
+  },
 });
 
 const AnimatedCellWrapper = memo(AnimatedCellWrapperComponent);
