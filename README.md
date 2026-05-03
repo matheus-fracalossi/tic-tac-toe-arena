@@ -1,50 +1,65 @@
-# Welcome to your Expo app 👋
+# Tic Tac Toe Arena
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A classic Tic Tac Toe game built with React Native and Expo, featuring retro pixel-art design, sound effects, and internationalization support.
 
-## Get started
+## Preview
 
-1. Install dependencies
+![Video Preview](./assets/video-preview/video-preview.gif)
 
-   ```bash
-   npm install
-   ```
+*Note: The low FPS in the preview is due to GIF compression limitations. The actual app runs smoothly.*
 
-2. Start the app
+## Prerequisites
 
-   ```bash
-   npx expo start
-   ```
+Set up your React Native development environment following the [Expo documentation](https://docs.expo.dev/get-started/set-up-your-environment/).
 
-In the output, you'll find options to open the app in a
+> **⚠️ Important:** Choose the **Development Build** option during setup. Expo Go won't work properly with this app due to custom font requirements.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Quick Start
 
 ```bash
-npm run reset-project
+npm install
+npx expo prebuild
+npm run start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Then install dev build on device:
 
-## Learn more
+```bash
+npm run ios      # iOS simulator/device
+npm run android  # Android emulator/device
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Features
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- **Retro UI** - Pixel-art graphics with Press Start 2P font
+- **Sound Effects** - Background music and game sounds
+- **i18n Support** - Multi-language ready
+- **Animations** - Smooth transitions and confetti effects
 
-## Join the community
+## Tech Stack
 
-Join our community of developers creating universal apps.
+- React Native 0.81
+- Expo 54
+- TypeScript
+- Expo Router (file-based routing)
+- i18next (internationalization)
+- Expo Audio
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Project Structure
+
+```
+src/
+├── app/          # Screens (file-based routing)
+├── components/   # Reusable UI components
+├── features/     # Feature modules (game, audio, home)
+└── i18n/         # Translations
+```
+
+## Scripts
+
+- `npm start` - Start development server
+- `npm run android` - Run on Android
+- `npm run ios` - Run on iOS
+- `npm run web` - Run on web
+- `npm test` - Run tests
+- `npm run lint` - Lint code
